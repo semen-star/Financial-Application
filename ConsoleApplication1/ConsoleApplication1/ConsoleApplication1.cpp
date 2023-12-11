@@ -59,24 +59,19 @@ public:
     string GetSurname() {
         return Surname;
     }
-};
 
 
-void setInfo(User& user) {
-    string name;
-    string Surname;
-    string PassportNum;
-    {
+    void SetInfo() {
         cout << "Input Name:";
-        cin >> name;
+        cin >> Name;
         cout << "Input Surname:";
         cin >> Surname;
         cout << "Input number of Passport(without space):";
         cin >> PassportNum;
     }
-    User TempUser{ name, Surname,PassportNum };
-    user = TempUser;
-}
+};
+
+
 int MainMenu(int& choise) {
 
     cout << endl;
@@ -100,7 +95,7 @@ void DoActions(User& user, int choise) {
         cin.get();
     }
     else if (choise == 2) {
-        setInfo(user);
+        user.SetInfo();
         cin.get();
     }
     else if (choise == 3) {
@@ -125,14 +120,22 @@ int main() {
     file.open("data.txt");
     localizated();
 
-    User semyon;
-    setInfo(semyon);
-    cout << "Name: " << semyon.GetName() << endl << "Surname: " << semyon.GetSurname() << endl;
+    User MainUser; 
+    {
+        ofstream file("data.txt", ios::app);
+        if (!file.is_open()) {
+            cout << "Error in working with the file system!";
+            exit(EXIT_FAILURE);
+        }
+    }//проверка на открытие файла
+    
+    MainUser.SetInfo();
+    cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
     int choise{ 0 };
     while (choise != 6) {
         MainMenu(choise);
         if (choise != 6)
-            DoActions(semyon, choise);
+            DoActions(MainUser, choise);
     }
     file.close();
     return 0;
