@@ -7,6 +7,7 @@ class Money {
 protected:
     float balance;
 
+public:
     Money() :balance{ 0 } {}
 
     virtual void spend() = 0;

@@ -5,24 +5,13 @@
 #include "User.h"
 using namespace std;
 
-class Money {
-protected:
-    float balance;
-
-    Money() :balance{ 0 } {}
-
-    virtual void spend() = 0;
-    virtual void earn() = 0;
-};
-
-
-
-class Wallet :public Money {
+class Wallet : public Money {
 public:
     bool HaveCreditCard;
     bool HaveDebitCard;
+    
 
-    Wallet(bool credit, bool debit) : HaveCreditCard{ credit }, HaveDebitCard{ debit } {}
+    Wallet(bool credit, bool debit) : Money(), HaveCreditCard{ credit }, HaveDebitCard{ debit } {}
     Wallet() : Wallet(0, 0) {}
 
 };
@@ -80,16 +69,19 @@ void localizated() {
 }
 int main() {
     ofstream file;
-    file.open("data.txt");
+    
     localizated();
 
     User MainUser; 
     {
-        bool file = is_file_exist("data.txt");
-        if(file==false)
+        bool file1 = is_file_exist("data.txt");
+        if (file1 == false) {
+            file.open("data.txt");
             MainUser.SetInfo();
+        }
+            
         else {
-
+            cout << "В будущем тут я подтяну данные пользователя" << endl;
         }
     }//проверка на существование файла
 
