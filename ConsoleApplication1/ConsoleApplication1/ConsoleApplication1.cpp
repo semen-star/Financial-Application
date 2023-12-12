@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <fstream>
+#include <sys/stat.h>
+#include "User.h"
 using namespace std;
 
 class Money {
@@ -13,23 +15,7 @@ protected:
     virtual void earn() = 0;
 };
 
-class CreditCard :public Money {
-public:
 
-
-};
-class CreditCardUser : public CreditCard {
-public:
-
-};
-
-class DebitCard :public Money {
-public:
-
-};
-class DebitCardUser :public DebitCard {
-
-};
 
 class Wallet :public Money {
 public:
@@ -41,35 +27,7 @@ public:
 
 };
 
-class User {
-protected:
-    string Name;
-    string Surname;
-    string PassportNum;
-public:
-    User(string name, string surname, string PassportNum) :Name{ name }, Surname{ surname }, PassportNum{ PassportNum } {}
-    User() : User("None", "None", "") {}
 
-    string GetPassportNum() {
-        return PassportNum;
-    }
-    string GetName() {
-        return Name;
-    }
-    string GetSurname() {
-        return Surname;
-    }
-
-
-    void SetInfo() {
-        cout << "Input Name:";
-        cin >> Name;
-        cout << "Input Surname:";
-        cin >> Surname;
-        cout << "Input number of Passport(without space):";
-        cin >> PassportNum;
-    }
-};
 
 
 int MainMenu(int& choise) {
@@ -110,6 +68,11 @@ void DoActions(User& user, int choise) {
     }
 }
 
+bool is_file_exist(string fileName)
+{
+    std::ifstream infile(fileName);
+    return infile.good();
+}
 
 void localizated() {
     setlocale(LC_ALL, "");
@@ -122,14 +85,17 @@ int main() {
 
     User MainUser; 
     {
-        ofstream file("data.txt", ios::app);
-        if (!file.is_open()) {
-            cout << "Error in working with the file system!";
-            exit(EXIT_FAILURE);
+        bool file = is_file_exist("data.txt");
+        if(file==false)
+            MainUser.SetInfo();
+        else {
+
         }
-    }//проверка на открытие файла
+    }//проверка на существование файла
+
+
     
-    MainUser.SetInfo();
+    system("cls");
     cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
     int choise{ 0 };
     while (choise != 6) {
