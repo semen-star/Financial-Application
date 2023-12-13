@@ -1,7 +1,6 @@
 ﻿#include <iostream>
-#include <windows.h>
+//#include <windows.h>
 #include <fstream>
-#include <sys/stat.h>
 #include "User.h"
 using namespace std;
 
@@ -65,29 +64,30 @@ bool is_file_exist(string fileName)
 
 void localizated() {
     setlocale(LC_ALL, "");
-    SetConsoleCP(1251);
+    //SetConsoleCP(1251);
 }
 int main() {
     ofstream file;
-    
+    file.open("Data.txt")
     localizated();
 
     User MainUser; 
     {
-        bool file1 = is_file_exist("data.txt");
-        if (file1 == false) {
-            file.open("data.txt");
+        bool fileUser = is_file_exist("UserData.txt");
+
+        if (fileUser == false) {
+            file.open("UserData.txt");
             MainUser.SetInfo();
         }
-            
         else {
-            cout << "В будущем тут я подтяну данные пользователя" << endl;
+            //TODO сделать взятие данных пользователя из файла
         }
+        fileUser.close();
     }//проверка на существование файла
 
 
     
-    system("cls");
+    //system("cls");
     cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
     int choise{ 0 };
     while (choise != 6) {
@@ -95,6 +95,12 @@ int main() {
         if (choise != 6)
             DoActions(MainUser, choise);
     }
+    //TODO сделать сохранение в User и data файлы
     file.close();
     return 0;
 }
+
+
+
+
+//TODO сделать нормальную локализацию под мак и винду
