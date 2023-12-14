@@ -1,6 +1,7 @@
 ﻿#include <iostream>
-//#include <windows.h>
+#include <windows.h>
 #include <fstream>
+#include <string>
 #include "User.h"
 using namespace std;
 
@@ -16,6 +17,27 @@ public:
 };
 
 
+void saveUser(User& user, string path) 
+{
+    ofstream file(path);
+    if (!file.good()) return;
+
+    file << user.GetName() << endl;
+    file << user.GetSurname() << endl;
+    file << user.GetPassportNum() << endl;
+    file.close();
+}
+void loadUser(User& user, string path) 
+{
+    ifstream file(path);
+    if (!file.good()) return;
+
+    file >> user.Name;
+    file >> user.Surname;
+    file >> user.PassportNum;
+    
+    file.close();
+}
 
 
 int MainMenu(int& choise) {
@@ -34,14 +56,12 @@ int MainMenu(int& choise) {
 }
 void DoActions(User& user, int choise) {
     if (choise == 1) {
-        cout << "Name: " << user.GetName() << endl;
-        cout << "Surname: " << user.GetSurname() << endl;
-        cout << "Number of Passport: " << user.GetPassportNum() << endl;
-        cout << "Balance: " << "I worket about it!" << endl;
+        user.OutputInfo();
         cin.get();
     }
     else if (choise == 2) {
         user.SetInfo();
+        saveUser(user, "UserData.txt");
         cin.get();
     }
     else if (choise == 3) {
@@ -58,36 +78,30 @@ void DoActions(User& user, int choise) {
 
 bool is_file_exist(string fileName)
 {
-    std::ifstream infile(fileName);
+    ifstream infile(fileName);
     return infile.good();
 }
 
 void localizated() {
     setlocale(LC_ALL, "");
-    //SetConsoleCP(1251);
+    SetConsoleCP(1251);
 }
 int main() {
-    ofstream file;
-    file.open("Data.txt")
     localizated();
 
     User MainUser; 
-    {
-        bool fileUser = is_file_exist("UserData.txt");
-
-        if (fileUser == false) {
-            file.open("UserData.txt");
-            MainUser.SetInfo();
-        }
-        else {
-            //TODO сделать взятие данных пользователя из файла
-        }
-        fileUser.close();
-    }//проверка на существование файла
+    //проверка на существование файла
+    if (!is_file_exist("UserData.txt")) {
+        MainUser.SetInfo();
+        saveUser(MainUser, "UserData.txt");
+    }
+    else {
+        loadUser(MainUser, "UserData.txt");
+    }
 
 
     
-    //system("cls");
+    system("cls");
     cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
     int choise{ 0 };
     while (choise != 6) {
@@ -95,8 +109,7 @@ int main() {
         if (choise != 6)
             DoActions(MainUser, choise);
     }
-    //TODO сделать сохранение в User и data файлы
-    file.close();
+  
     return 0;
 }
 
