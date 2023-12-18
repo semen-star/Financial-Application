@@ -29,5 +29,8 @@
     <ClInclude Include="Money.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Cash.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cards.h" />
+    <ClInclude Include="Cash.h" />
     <ClInclude Include="Money.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

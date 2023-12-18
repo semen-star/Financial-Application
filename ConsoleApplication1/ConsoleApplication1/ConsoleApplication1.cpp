@@ -5,16 +5,7 @@
 #include "User.h"
 using namespace std;
 
-class Wallet : public Money {
-public:
-    bool HaveCreditCard;
-    bool HaveDebitCard;
-    
 
-    Wallet(bool credit, bool debit) : Money(), HaveCreditCard{ credit }, HaveDebitCard{ debit } {}
-    Wallet() : Wallet(0, 0) {}
-
-};
 
 
 void saveUser(User& user, string path) 

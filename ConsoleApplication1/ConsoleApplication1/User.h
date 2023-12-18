@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Money.h"
-#include "Cards.h"
+#include "Wallet.h"
 using namespace std;
 
 
@@ -10,6 +9,7 @@ protected:
     string Name;
     string Surname;
     string PassportNum;
+    double Balance;
 public:
     friend void loadUser(User&, string);
 
@@ -25,7 +25,11 @@ public:
     string GetSurname() {
         return Surname;
     }
-
+    double GetBalance() {
+        return Balance;
+    }
+        
+    
     void SetName(string Name_) {
         Name = Name_;
     }
@@ -35,12 +39,13 @@ public:
     void SetPassNum(string PassNum_) {
         PassportNum=PassNum_;
     }
-
+    
     void OutputInfo() {
         cout << "Name: " << Name << endl;
         cout << "Surname: " << Surname << endl;
         cout << "Number of Passport: " << PassportNum << endl;
-        cout << "Balance: " << "I worket about it!" << endl;
+        //Balance=Cash.Coins+Cash.Banknots+DebitCardUser.Balance;
+        cout << "Balance(Without a credit card): " << Balance << endl;
     }
 
     void SetInfo() {
