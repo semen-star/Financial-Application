@@ -1,11 +1,13 @@
 #pragma once
 #include <iostream>
 #include "Money.h"
+#include "Cash.h"
+#include "Cards.h"
 using namespace std;
 
-class Wallet : public Money {
+class Wallet : public Money{
 private:
-    double Balance;
+    double balance;
 public:
     bool HaveCreditCard;
     bool HaveDebitCard;
@@ -15,8 +17,9 @@ public:
     Wallet() : Wallet(0, 0, 1) {}
 
 
-    double GetBalance() {
-        //Balance = Cash.Coins + Cash.Banknots + DebitCardUser.Balance;
+    double getBalance(Cash cashUser, DebitCardUser debitCard) {
+
+        balance = cashUser.GetBalance() + debitCard.GetBalance();
         return Balance; 
     }
 };

@@ -11,4 +11,6 @@ public:
 
     virtual void spend() = 0;
     virtual void earn() = 0;
+
+    virtual double GetBalance() = 0;
 };

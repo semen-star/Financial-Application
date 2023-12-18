@@ -5,8 +5,6 @@ using namespace std;
 
 
 class CreditCard :public Money {
-private:
-	double Balance;
 public:
 
 	virtual double GetBalance() = 0;
@@ -28,9 +26,11 @@ public:
 	}
 };
 
+
+
 class DebitCard :public Money {
 private:
-	double Balance;
+	double DebitBalance;
 public:
 
 	virtual double GetBalance() = 0;
@@ -38,8 +38,12 @@ public:
 	void earn() = 0;
 };
 class DebitCardUser :public DebitCard {
-	virtual double GetBalance() {
+private:
+	double DebitBalance;
+public:
 
+	virtual double GetBalance() {
+		return DebitBalance;
 	}
 
 	void spend(/*принимаю транкзакцию*/) {

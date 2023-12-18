@@ -132,8 +132,10 @@
   <ItemGroup>
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Cash.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Money.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
