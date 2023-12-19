@@ -9,8 +9,8 @@ public:
 
     Money() :Balance{ 0 } {}
 
-    virtual void spend() = 0;
-    virtual void earn() = 0;
+    virtual void spend(/*принимаю транкзакцию*/) = 0;
+    virtual void earn(/*принимаю транкзакцию*/) = 0;
 
     virtual double GetBalance() = 0;
 };

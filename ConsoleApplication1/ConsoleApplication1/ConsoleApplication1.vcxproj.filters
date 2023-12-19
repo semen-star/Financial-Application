@@ -13,30 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Money">
+      <UniqueIdentifier>{7ae084f3-9920-4af1-a4f5-9be0629100d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Money\Interfaces">
+      <UniqueIdentifier>{3352f15c-2927-467d-b11b-6bcf0a906c21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp">
+    <ClCompile Include="FinancialManager.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditCard.h">
+      <Filter>Исходные файлы\Money</Filter>
+    </ClCompile>
+    <ClCompile Include="IDebitCard.h">
+      <Filter>Исходные файлы\Money\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Cards.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Money.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Cash.h">
+    <ClInclude Include="Functions.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="Wallet.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Functions.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="DebitCard.h">
+      <Filter>Исходные файлы\Money</Filter>
+    </ClInclude>
+    <ClInclude Include="ICreditCard.h">
+      <Filter>Исходные файлы\Money\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Money.h">
+      <Filter>Исходные файлы\Money\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Cash.h">
+      <Filter>Исходные файлы\Money</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

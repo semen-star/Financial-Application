@@ -1,25 +1,38 @@
 #pragma once
 #include <iostream>
-#include "Money.h"
 #include "Cash.h"
-#include "Cards.h"
+#include "CreditCard.h"
+#include "DebitCard.h"
+
 using namespace std;
 
 class Wallet : public Money{
 private:
     double balance;
 public:
-    bool HaveCreditCard;
-    bool HaveDebitCard;
-    bool HaveCash;
+    CreditCard* credit = NULL;
+    DebitCard* debit = NULL;
+    Cash* cash = NULL;
 
-    Wallet(bool credit, bool debit, bool Cash) : Money(), HaveCreditCard{ credit }, HaveDebitCard{ debit }, HaveCash{ Cash } {}
-    Wallet() : Wallet(0, 0, 1) {}
+    void SetCreditCard() {
 
+    }
+    void SetDebitCard() {
 
-    double getBalance(Cash cashUser, DebitCardUser debitCard) {
+    }
+    void SetCash() {
 
+    }
+
+    double getBalance(Cash cashUser, DebitCard debitCard) {
         balance = cashUser.GetBalance() + debitCard.GetBalance();
         return Balance; 
+    }
+
+    ~Wallet()
+    {
+        delete credit;
+        delete debit;
+        delete cash;
     }
 };

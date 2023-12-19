@@ -39,7 +39,7 @@ public:
     void SetPassNum(string PassNum_) {
         PassportNum=PassNum_;
     }
-    
+    // operator<<
     void OutputInfo() {
         cout << "Name: " << Name << endl;
         cout << "Surname: " << Surname << endl;
@@ -47,7 +47,7 @@ public:
         //Balance=Cash.Coins+Cash.Banknots+DebitCardUser.Balance;
         cout << "Balance(Without a credit card): " << Balance << endl;
     }
-
+    // operator>>
     void SetInfo() {
         cout << "Input Name:";
         cin >> Name;
