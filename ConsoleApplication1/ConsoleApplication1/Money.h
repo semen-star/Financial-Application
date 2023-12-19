@@ -6,7 +6,7 @@ using namespace std;
 class Money {
 public:
     double Balance;
-
+    Money(double balance) :Balance{ balance } {}
     Money() :Balance{ 0 } {}
 
     virtual void spend(/*принимаю транкзакцию*/) = 0;

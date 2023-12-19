@@ -2,6 +2,6 @@
 #include "Money.h"
 
 class IDebitCard :public Money {
-private:
+protected:
 	double DebitBalance;
 };

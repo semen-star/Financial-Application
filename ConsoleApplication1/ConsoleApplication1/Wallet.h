@@ -14,18 +14,18 @@ public:
     DebitCard* debit = NULL;
     Cash* cash = NULL;
 
-    void SetCreditCard() {
-
+    void NewCreditCard() {
+        credit = new CreditCard();
     }
-    void SetDebitCard() {
-
+    void NewDebitCard() {
+        debit = new DebitCard();
     }
-    void SetCash() {
-
+    void NewCash() {
+        cash = new Cash(0,0);
     }
 
-    double getBalance(Cash cashUser, DebitCard debitCard) {
-        balance = cashUser.GetBalance() + debitCard.GetBalance();
+    double getBalance() {
+        balance = cash->GetBalance() + debit->GetBalance();
         return Balance; 
     }
 

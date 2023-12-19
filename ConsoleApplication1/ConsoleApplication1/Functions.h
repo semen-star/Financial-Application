@@ -19,6 +19,16 @@ void saveUser(User& user, string path)
     file << user.GetName() << endl;
     file << user.GetSurname() << endl;
     file << user.GetPassportNum() << endl;
+    /*file << если есть кошелёк, записать 1, если нет 0 */
+    if (user.wallet->credit == NULL){
+        file << 1 << endl;
+        file << user.GetBalance()<<endl; 
+        /*file << получить баланс кредитки*/
+        /*file << получить баланс дебетовой*/
+    }
+    else {
+        file << 0;
+    }
     file.close();
 }
 void loadUser(User& user, string path)
@@ -29,6 +39,14 @@ void loadUser(User& user, string path)
     file >> user.Name;
     file >> user.Surname;
     file >> user.PassportNum;
+    int wallet; 
+    file >> wallet;
+    if (wallet == 1) {
+        file >> user.Balance;
+        /*file << записать баланс кредитки*/
+        /*file << записать баланс дебетовой*/
+    }
+    
 
     file.close();
 }

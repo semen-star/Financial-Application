@@ -10,11 +10,19 @@ protected:
     string Surname;
     string PassportNum;
     double Balance;
+   
 public:
-    friend void loadUser(User&, string);
 
+    Wallet* wallet;
+
+    friend void loadUser(User&, string);
+    
     User(string name, string surname, string PassportNum) :Name{ name }, Surname{ surname }, PassportNum{ PassportNum } {}
     User() : User("None", "None", "") {}
+
+    void NewWallet() {
+        wallet = new Wallet();
+    }
 
     string GetPassportNum() {
         return PassportNum;

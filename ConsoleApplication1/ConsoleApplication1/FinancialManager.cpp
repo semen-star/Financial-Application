@@ -15,7 +15,7 @@ int main() {
 
     User MainUser; 
     //проверка на существование файла
-    if (!is_file_exist("UserData.txt")) {
+    if (!is_file_exist("UserData.txt")) {  
         MainUser.SetInfo();
         saveUser(MainUser, "UserData.txt");
     }

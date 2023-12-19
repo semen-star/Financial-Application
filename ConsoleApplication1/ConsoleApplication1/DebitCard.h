@@ -2,11 +2,10 @@
 #include "IDebitCard.h"
 
 class DebitCard :public IDebitCard {
-private:
-	double DebitBalance;
 public:
+	double DebitBalance;
 
-	virtual double GetBalance() {
+	double GetBalance() {
 		return DebitBalance;
 	}
 
