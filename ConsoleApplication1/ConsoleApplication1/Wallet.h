@@ -6,9 +6,7 @@
 
 using namespace std;
 
-class Wallet : public Money{
-private:
-    double balance;
+class Wallet {
 public:
     CreditCard* credit = NULL;
     DebitCard* debit = NULL;
@@ -25,8 +23,7 @@ public:
     }
 
     double getBalance() {
-        balance = cash->GetBalance() + debit->GetBalance();
-        return Balance; 
+        return cash->GetBalance() + debit->GetBalance() + credit->GetBalance();
     }
 
     ~Wallet()

@@ -138,6 +138,8 @@
     <ClInclude Include="ICreditCard.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Money.h" />
+    <ClInclude Include="Report.h" />
+    <ClInclude Include="Transaction.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Wallet.h" />
   </ItemGroup>

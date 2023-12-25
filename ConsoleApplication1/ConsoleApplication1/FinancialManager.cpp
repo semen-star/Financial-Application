@@ -14,30 +14,26 @@ int main() {
     localizated();
 
     User MainUser; 
+    MainUser.SetInfo();
     //проверка на существование файла
-    if (!is_file_exist("UserData.txt")) {  
+    /*if (!is_file_exist("UserData.txt")) {  
         MainUser.SetInfo();
         saveUser(MainUser, "UserData.txt");
     }
     else {
         loadUser(MainUser, "UserData.txt");
-    }
+    }*/
 
 
     
     system("cls");
-    cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
+    //cout << "Name: " << MainUser.GetName() << endl << "Surname: " << MainUser.GetSurname() << endl;
     int choise{ 0 };
-    while (choise != 7) {
+    while (choise != 6) {
         MainMenu(choise);
-        if (choise != 7)
+        if (choise != 6)
             DoActions(MainUser, choise);
     }
     saveUser(MainUser, "UserData.txt");
     return 0;
 }
-
-
-
-
-//TODO сделать нормальную локализацию под мак и винду

@@ -2,17 +2,21 @@
 #include "IDebitCard.h"
 
 class DebitCard :public IDebitCard {
-public:
+protected:
 	double DebitBalance;
+public:
 
 	double GetBalance() {
 		return DebitBalance;
 	}
 
-	virtual void spend(/*принимаю транкзакцию*/) {
-
+	virtual void spend(Transaction transaction) {
+		if (DebitBalance > transaction.amount) {
+			DebitBalance -= transaction.amount;
+			transactions.push_back(transaction);
+		}
 	}
-	virtual void earn(/*принимаю транкзакцию*/) {
-
+	virtual void earn(double amount) {
+		DebitBalance += amount;
 	}
 };

@@ -53,5 +53,11 @@
     <ClInclude Include="Cash.h">
       <Filter>Исходные файлы\Money</Filter>
     </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Report.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

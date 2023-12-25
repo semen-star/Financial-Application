@@ -10,16 +10,19 @@ public:
 
 	Cash(double Coins, double Banknotes) :Money(), Coins{ Coins }, Banknotes{ Banknotes } {}
 
-	virtual double GetBalance() {
+	double GetBalance() {
 		Balance = Coins + Banknotes;
 		return Balance;
 	}
 
-	void spend() {
-
+	virtual void spend(Transaction transaction) {
+		if (Balance > transaction.amount) {
+			Balance -= transaction.amount;
+			transactions.push_back(transaction);
+		}
 	}
-	void earn() {
-
+	virtual void earn(double amount) {
+		Balance += amount;
 	}
 
 };
