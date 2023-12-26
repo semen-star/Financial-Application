@@ -15,6 +15,10 @@ int main() {
 
     User MainUser; 
     MainUser.SetInfo();
+    MainUser.NewWallet();
+    MainUser.wallet->NewCash();
+    MainUser.wallet->NewCreditCard();
+    MainUser.wallet->NewDebitCard();
     //проверка на существование файла
     /*if (!is_file_exist("UserData.txt")) {  
         MainUser.SetInfo();

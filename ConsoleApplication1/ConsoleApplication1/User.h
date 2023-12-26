@@ -50,7 +50,7 @@ public:
         cout << "Name: " << Name << endl;
         cout << "Surname: " << Surname << endl;
         cout << "Number of Passport: " << PassportNum << endl;
-        cout << "Balance(Without a credit card): " << Balance << endl;
+        cout << "Balance(Without a credit card): " << wallet->getBalance() << endl;
     }
     void SetInfo() {
         cout << "Input Name:";

@@ -18,11 +18,14 @@ public:
 	virtual void spend(Transaction transaction) {
 		if (Balance > transaction.amount) {
 			Balance -= transaction.amount;
+			Coins = Balance;
 			transactions.push_back(transaction);
 		}
+
 	}
 	virtual void earn(double amount) {
 		Balance += amount;
+		Coins = Balance;
 	}
 
 };
