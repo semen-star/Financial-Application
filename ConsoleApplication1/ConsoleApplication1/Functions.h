@@ -138,10 +138,14 @@ void DoActions(User& user, int choise) {
         cin >> choose1;
         cout << "Do you want to export to a file(1) or look at the screen(2):";
         cin >> choose2;
-        if (choose1 == 1 && choose2 == 2) 
+        if (choose1 == 1 && choose2 == 2){
             Report::RegularReport(*(user.wallet));
-        if (choose1 == 1 && choose2 == 1)
+            cout << "Файл сохранён в корневую папку проекта" << endl;
+        }
+        if (choose1 == 1 && choose2 == 1) {
             Report::RegularReportFile(*(user.wallet));
+            cout << "Файл сохранён в корневую папку проекта" << endl;
+        }
 
         if (choose1 == 2 && choose2 == 2) {
             double summ1, summ2;
@@ -158,6 +162,7 @@ void DoActions(User& user, int choise) {
             cout << "Введите значение до:";
             cin >> summ2;
             Report::AmounthReportFile(*(user.wallet), summ1, summ2);
+            cout << "Файл сохранён в корневую папку проекта" << endl;
         }  
 
         if (choose1 == 3 && choose2 == 2) {
@@ -175,6 +180,7 @@ void DoActions(User& user, int choise) {
             cin >> date.month;
             cin >> date.year;
             Report::DateReportFile(*(user.wallet),date);
+            cout << "Файл сохранён в корневую папку проекта" << endl;
         }
             
         if (choose1 == 4 && choose2 == 2) {
@@ -193,7 +199,9 @@ void DoActions(User& user, int choise) {
             cin >> cat;
             category = (Categories)cat;
             Report::CategoryReportFile(*(user.wallet),category);
+            cout << "Файл сохранён в корневую папку проекта" << endl;
         }
+        //cout << "Файл сохранён в корневую папку проекта" << endl;
     }
 }
 

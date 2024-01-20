@@ -1,4 +1,4 @@
-pragma once
+#pragma once
 #include <iostream>
 #include "Cash.h"
 #include "CreditCard.h"
@@ -9,7 +9,7 @@ using namespace std;
 class Wallet {
 public:
     Wallet() = default;
-    Wallet(const Wallet& other) : credit{new CreditCard(*other.credit)}, debit{ new DebitCard(*other.debit) }, cash{ new Cash(*other.cash) } {}
+    Wallet(const Wallet& other) : credit{ new CreditCard(*other.credit) }, debit{ new DebitCard(*other.debit) }, cash{ new Cash(*other.cash) } {}
 
     CreditCard* credit = NULL;
     DebitCard* debit = NULL;
@@ -22,7 +22,7 @@ public:
         debit = new DebitCard();
     }
     void NewCash() {
-        cash = new Cash(0,0);
+        cash = new Cash(0, 0);
     }
 
     double getBalance() {
